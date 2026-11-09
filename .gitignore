@@ -1,0 +1,32 @@
+# Python virtual environments
+.venv/
+venv/
+
+# Local secrets
+.env
+.env.*
+
+# Keep example configuration files
+!.env.example
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Django
+*.sqlite3
+media/
+staticfiles/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Frontend
+node_modules/
+dist/
+
+# Editors
+.vscode/
+.idea/
