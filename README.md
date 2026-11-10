@@ -121,3 +121,11 @@ expense-splitter/
     notifications/     # Recipient-isolated global unread notification engine
     common/            # Global custom exception maps and monetary utilities
 ```
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**. You may use, copy, modify, distribute, and commercially use the software, provided you retain the original copyright and license notice in copies or substantial portions of the software. The software is provided **as is**, without warranty.
+
+Copyright (c) 2026 Aman Yadav. See the [LICENSE](LICENSE) file for the full license terms.
