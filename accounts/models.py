@@ -13,11 +13,11 @@ from .managers import UserManager
 username_validator = RegexValidator(
     regex=r"^[a-z][a-z0-9_]{2,29}$",
     message=(
-        "Username must start with a lowercase letter and contain "
-        "3 to 30 lowercase letters, numbers, or underscores."
+        "Username must start with a lowercase letter "
+        "and contain 3 to 30 lowercase letters, "
+        "numbers, or underscores."
     ),
 )
-
 
 class User(AbstractBaseUser, PermissionsMixin):
     id = models.UUIDField(

@@ -16,6 +16,10 @@ DEBUG = os.getenv("DJANGO_DEBUG", "False").lower() == "true"
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 
+CSRF_TRUSTED_ORIGINS = ["http://localhost:5173"]
+
+FRONTEND_BASE_URL = "http://localhost:5173"
+
 
 INSTALLED_APPS = [
     "django.contrib.admin",

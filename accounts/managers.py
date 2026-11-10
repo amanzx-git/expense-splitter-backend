@@ -12,17 +12,21 @@ class UserManager(BaseUserManager):
         email = self.normalize_email(email).strip().lower()
 
         username = extra_fields.get("username")
-        if not username:
+        if not isinstance(username, str) or not username.strip():
             raise ValueError("Users must have a username.")
 
         extra_fields["username"] = username.strip().lower()
 
+        full_name = extra_fields.get("full_name")
+        if isinstance(full_name, str):
+            extra_fields["full_name"] = full_name.strip()
+
         user = self.model(email=email, **extra_fields)
 
-        # Hash and assign the password BEFORE validation.
+        # Assign the hashed password before model validation.
         user.set_password(password)
 
-        # Validate fields and uniqueness.
+        # Validate fields, constraints and uniqueness.
         user.full_clean()
 
         user.save(using=self._db)
