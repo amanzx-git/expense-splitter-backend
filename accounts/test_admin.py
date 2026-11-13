@@ -77,3 +77,23 @@ class UserAdminTests(TestCase):
         self.client.force_login(self.superuser)
         response = self.client.get(self.delete_url)
         self.assertEqual(response.status_code, 403)
+
+    def test_staff_with_change_permission_cannot_escalate_privileges(self):
+        permission = Permission.objects.get(content_type__app_label='accounts', codename='change_user')
+        self.staff.user_permissions.add(permission)
+        self.client.force_login(self.staff)
+        response = self.client.post(self.change_url, {'is_superuser': True, 'is_staff': True})
+        self.assertEqual(response.status_code, 403)
+        self.normal_user.refresh_from_db()
+        self.assertFalse(self.normal_user.is_superuser)
+
+    def test_superuser_can_edit_account(self):
+        self.client.force_login(self.superuser)
+        response = self.client.post(self.change_url, {
+            'email': self.normal_user.email, 'username': self.normal_user.username,
+            'full_name': 'Updated Name', 'is_active': 'on', 'email_verified': 'on',
+        })
+        self.assertEqual(response.status_code, 302)
+        self.normal_user.refresh_from_db()
+        self.assertEqual(self.normal_user.full_name, 'Updated Name')
+        self.assertTrue(self.normal_user.check_password('StrongTestPass123!'))
