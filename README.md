@@ -8,6 +8,8 @@ Backend for **Splitter**, a group expense-sharing application built with **Pytho
 
 **Recruiter / reviewer?** Read the [engineering case study](docs/PROJECT_CASE_STUDY.md) for the architecture, financial correctness, concurrency strategy, user journey, and technology decisions. For the UI, see the [React frontend](https://github.com/amanzx-git/expense-splitter-frontend).
 
+**Explore:** [Engineering case study](docs/PROJECT_CASE_STUDY.md) · [Deployment readiness checklist](docs/DEPLOYMENT_CHECKLIST.md) · [Frontend](https://github.com/amanzx-git/expense-splitter-frontend)
+
 ## What it does
 
 - **Accounts:** email registration and verification, session authentication, password reset, and profile management.
