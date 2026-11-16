@@ -15,6 +15,19 @@
 
 **Development status:** The project is under active development and being prepared for production deployment. A production URL and operational claims will be added only after they are verified.
 
+## System architecture
+
+```mermaid
+flowchart LR
+    U[Browser user] --> UI[React + Vite]
+    UI -->|Guest mode| Q[Local Quick Split calculations]
+    UI -->|REST JSON, session cookies, CSRF| API[Django REST Framework]
+    API -->|ORM, atomic transactions, locks| DB[(PostgreSQL)]
+    API --> N[Notifications]
+```
+
+The diagram describes the logical application components, **not** deployed cloud infrastructure.
+
 ## The engineering problem
 
 A group expense tracker must be correct under more than ideal conditions. Different users may edit expenses concurrently; an equal split may not divide neatly into whole paise; and a payer reporting a transfer must not automatically mark it as received.
