@@ -4,6 +4,10 @@ Backend for **Splitter**, a group expense-sharing application built with **Pytho
 
 > **Status:** Active development. Production deployment is planned; a public production URL is not yet documented. The technical repository name remains `expense-splitter-backend`.
 
+## Start here
+
+**Recruiter / reviewer?** Read the [engineering case study](docs/PROJECT_CASE_STUDY.md) for the architecture, financial correctness, concurrency strategy, user journey, and technology decisions. For the UI, see the [React frontend](https://github.com/amanzx-git/expense-splitter-frontend).
+
 ## What it does
 
 - **Accounts:** email registration and verification, session authentication, password reset, and profile management.
